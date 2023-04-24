@@ -56,7 +56,7 @@ subscribe(APP_READY, () => {
                   <OutlineTab />
                 </TabContainer>
               </PageRoute>
-              <PageRoute path="/course/:courseId/live">
+              {/*<PageRoute path="/course/:courseId/live">
                 <TabContainer tab="live" fetch={fetchLiveTab} slice="courseHome">
                   <LiveTab />
                 </TabContainer>
@@ -85,7 +85,7 @@ subscribe(APP_READY, () => {
                     <ProgressTab />
                   </TabContainer>
                 )}
-              />
+              />*/}
               <PageRoute path="/course/:courseId/course-end">
                 <TabContainer tab="courseware" fetch={fetchCourse} slice="courseware">
                   <CourseExit />

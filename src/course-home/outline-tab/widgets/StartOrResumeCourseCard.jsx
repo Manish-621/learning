@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card } from '@edx/paragon';
+import { Button, Card, CheckBox } from '@edx/paragon';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 
 import { useSelector } from 'react-redux';
@@ -41,23 +41,22 @@ function StartOrResumeCourseCard({ intl }) {
   };
 
   return (
-    <Card className="mb-3 raised-card" data-testid="start-resume-card">
-      <Card.Header
-        title={hasVisitedCourse ? intl.formatMessage(messages.resumeBlurb) : intl.formatMessage(messages.startBlurb)}
-        actions={(
+    <div className='row mb-5'>
+      <CheckBox></CheckBox>
+      <div className='col-8'>
+        <p>I have read all the instructions carefully and I'm ready to start the assessment</p>
+      </div>
+      <div className='col-5'>
           <Button
-            variant="brand"
+            variant="primary"
             block
             href={resumeCourseUrl}
             onClick={() => logResumeCourseClick()}
           >
-            {hasVisitedCourse ? intl.formatMessage(messages.resume) : intl.formatMessage(messages.start)}
+            Start Assessment
           </Button>
-        )}
-      />
-      {/* Footer is needed for internal vertical spacing to work out. If you can remove, be my guest */}
-      <Card.Footer><></></Card.Footer>
-    </Card>
+       </div>   
+    </div>   
   );
 }
 

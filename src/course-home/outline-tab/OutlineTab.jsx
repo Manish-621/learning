@@ -130,12 +130,29 @@ function OutlineTab({ intl }) {
   return (
     <>
       <div data-learner-type={learnerType} className="row w-100 mx-0 my-3 justify-content-between">
-        <div className="col-12 col-sm-auto p-0">
+        <div className="col-8 col-sm-auto p-0">
           <div role="heading" aria-level="1" className="h2">{title}</div>
         </div>
+        <div className='col-5'>
+          <div className='row'>
+              <div className='col-3 px-3 text-center'>
+                <div className="h5 row px-3">Starts On</div>
+                <div className='row small'>1 August 2020</div>
+              </div>
+              <div className='col-3 px-3 text-center'>
+                <div className="h5 row px-3">Ends On</div>
+                <div className='row small'>1 August 2020</div>
+              </div>
+              <div className='col-3 px-3'>
+                <div className="h5 row px-3">Time</div>
+                <div className='row small'>120 mins</div>
+              </div>
+          </div>    
+        </div>
       </div>
+      <hr></hr>
       {/** [MM-P2P] Experiment (className for optimizely trigger) */}
-      <div className="row course-outline-tab">
+      <div className="row course-outline-tab mt-5">
         <AccountActivationAlert />
         <div className="col-12">
           <AlertList
@@ -145,7 +162,7 @@ function OutlineTab({ intl }) {
             }}
           />
         </div>
-        <div className="col col-12 col-md-8">
+        <div className="col px-5 col-12 col-md-8">
           { /** [MM-P2P] Experiment (the conditional) */ }
           { !MMP2P.state.isEnabled
             && (
@@ -166,7 +183,26 @@ function OutlineTab({ intl }) {
               <UpgradeToShiftDatesAlert model="outline" logUpgradeLinkClick={logUpgradeToShiftDatesLinkClick} />
             </>
           )}
+          <div className='row h3'>Assessment Guidelines</div>
+          <div className='row my-3'>
+            <p>This assessment has a time limit associated with it. To pass this exam, you must complete the exam in the time allowed. After you select I am ready   to start the exam, you will have
+               45 minutes to complete and submit the exam.</p>
+            <p>Click on Start Assessment to start the test and ensure that you are attempting the test using
+            the correct email ID.</p>
+            <p>You must click End My Exam after you are done with the test.</p>
+            <p>Once the test has started, the timer cannot be paused. You have to complete the test in
+            one attempt.</p>
+            <p>The candidate may not use his or her textbook, course notes, or receive help from a
+            proctor or any other outside source.</p>
+            <p>It is recommended that you ensure that your system meets Discoveri's compatibility
+            requirements sent over email and check your Internet connection before starting the test.</p>
+            <p>It is recommended that you attempt the test in an incognito or private window so that any
+            extensions installed do not interfere with the test environment.</p>
+            <p>We recommend that you close all other windows and tabs to ensure that there are no
+            distractions.</p>
+          </div>
           <StartOrResumeCourseCard />
+          {/*
           <WelcomeMessage courseId={courseId} />
           {rootCourseId && (
             <>
@@ -189,7 +225,7 @@ function OutlineTab({ intl }) {
                 ))}
               </ol>
             </>
-          )}
+          )} */}
         </div>
         {rootCourseId && (
           <div className="col col-12 col-md-4">
@@ -202,8 +238,8 @@ function OutlineTab({ intl }) {
                 subscribedToReminders={selectedGoal && 'subscribedToReminders' in selectedGoal ? selectedGoal.subscribedToReminders : false}
               />
             )}
-            <CourseTools />
-            { /** [MM-P2P] Experiment (conditional) */ }
+            {/*<CourseTools />
+               { /** [MM-P2P] Experiment (conditional)  }
             { MMP2P.state.isEnabled
               ? <MMP2PFlyover isStatic options={MMP2P} />
               : (
@@ -222,10 +258,10 @@ function OutlineTab({ intl }) {
                 />
               )}
             <CourseDates
-              /** [MM-P2P] Experiment */
+              /** [MM-P2P] Experiment 
               mmp2p={MMP2P}
-            />
-            <CourseHandouts />
+              /> 
+            <CourseHandouts /> */}
           </div>
         )}
       </div>
